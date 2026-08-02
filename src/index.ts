@@ -31,7 +31,11 @@ app.get('/health', (req, res) => {
   res.json({ status: 'ok', message: 'WalletZap API running' });
 });
 
-// We will add Auth, Accounts, and Transactions routes here later
+/** 
+ * TODO: Add your routes here
+ * We will add Auth, Accounts, and Transactions routes here later 
+*/
+// ...
 
 // ── 404 ───────────────────────────────────────────────────────────────────────
 app.use((req, res) => {
