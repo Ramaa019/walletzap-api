@@ -1,44 +1,65 @@
 # ⚡ WalletZap - API
 
-Plataforma de control financiero personal diseñada para reducir a cero la fricción al registrar gastos diarios. Permite ingresar transacciones en segundos desde **WhatsApp** mediante procesamiento de texto y visualizar métricas y estados de cuenta desde un **Dashboard Web**.
+A personal financial control platform designed to reduce daily expense tracking friction to zero. It allows users to log transactions in seconds via **WhatsApp** using natural language processing and visualize metrics and account statements on a **Web Dashboard**.
 
 ---
 
-## 🎯 Problema & Solución
+### 🎯 Problem & Solution
 
-* **Problema:** La mayoría de las aplicaciones de finanzas personales sufren de un alto índice de abandono debido a la pereza o complejidad que genera completar formularios detallados para compras pequeñas del día a día ("gastos hormiga").
-* **Solución:** **WalletZap** permite registrar un gasto enviando un mensaje directo por WhatsApp (ejemplo: `harina 4000 efectivo` o `2 puchos 3900 mp`), procesando el mensaje automáticamente para actualizar el saldo de la cuenta correspondiente.
+* **Problem:** Most personal finance applications suffer from a high abandonment rate (churn rate) due to the friction and complexity of filling out detailed forms for small, day-to-day purchases.
+* **Solution:** **WalletZap** allows users to log an expense by simply sending a direct message via WhatsApp (e.g., `flour 4000 cash` or `coffee 3900 mp`). The system automatically processes the message and updates the corresponding account balance.
 
 ---
 
-## 📂 Estructura del Proyecto
+### 📂 Project Structure
 
 ```text
 walletzap-api/
+├── docs/             # Project documentation and schemas
+│   └── database/     # SQL files and database diagrams
 ├── src/
-│   ├── config/       # Variables de entorno y configuraciones generales
-│   ├── controllers/  # Manejadores de peticiones HTTP (req, res)
-│   ├── db/           # Conexión e inicialización de Sequelize / PostgreSQL
-│   ├── middlewares/  # Middlewares de Express (Auth, Validaciones, Errores)
-│   ├── models/       # Modelos de Sequelize (User, Account, Transaction)
-│   ├── routes/       # Definición de rutas y endpoints de la API
-│   ├── services/     # Lógica de negocio (Parser de WhatsApp, Cálculos)
-│   └── utils/        # Funciones auxiliares y helpers
-├── .env              # Variables de entorno (no subidas a Git)
-├── .gitignore        # Archivos excluidos de Git
-└── README.md         # Documentación del proyecto
+│   ├── config/       # Environment variables and general configurations
+│   ├── controllers/  # HTTP request handlers (req, res)
+│   ├── db/           # Sequelize / PostgreSQL connection and initialization
+│   ├── middlewares/  # Express Middlewares (Auth, Validations, Errors)
+│   ├── models/       # Sequelize Models (User, Account, Transaction)
+│   ├── routes/       # API routes and endpoints definition
+│   ├── services/     # Business logic (WhatsApp Parser, Calculations)
+│   └── utils/        # Auxiliary functions and helpers
+├── .env              # Environment variables (ignored by Git)
+├── .gitignore        # Files ignored by Git
+└── README.md         # Project documentation
+```
 
 ---
 
-## 🛠️ Stack Tecnológico (Backend)
+## 🛠️ Tech Stack (Backend)
 
-- **Entorno de ejecución:** Node.js (con WSL / Ubuntu)
-- **Lenguaje:** TypeScript
-- **Framework Web:** Express
+- **Runtime Environment:** Node.js (with WSL / Ubuntu)
+- **Language:** TypeScript
+- **Web Framework:** Express
 - **ORM:** Sequelize
-- **Base de Datos:** PostgreSQL (Alojado en Neon)
-- **Gestor de paquetes:** `pnpm`
-- **Linter & Formateador:** ESLint + Prettier
+- **Database:** PostgreSQL (Hosted on Neon)
+- **Package Manager:** `pnpm`
+- **Linter & Formatter:** ESLint + Prettier
 
 ---
+### 🗄️ Database Architecture
+
+The application uses **PostgreSQL** hosted on **Neon**. Below is the entity-relationship summary for the MVP:
+
+### Entities & Tables
+
+| Table | Description | Columns |
+| :--- | :--- | :--- |
+| **`users`** | Registered users in the platform | `id`, `username`, `email`, `password`, `phone_number`, `link_pin` |
+| **`accounts`** | User payment methods / wallets | `id`, `user_id`, `name`, `balance`, `is_default` |
+| **`categories`** | Expense and income classification | `id`, `user_id`, `name`, `type` |
+| **`transactions`** | Financial records (expenses & incomes) | `id`, `account_id`, `category_id`, `amount`, `type`, `description` |
+
+
+> 📌 The raw SQL schema file is located at `docs/database/schema.sql`.
+
+---
+
 
