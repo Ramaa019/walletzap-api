@@ -9,7 +9,6 @@ CREATE TABLE "users" (
   "email" varchar(255) UNIQUE NOT NULL,
   "password" varchar(255) NOT NULL,
   "phone_number" varchar(20) UNIQUE,
-  "link_pin" varchar(6),
   "created_at" timestamp NOT NULL,
   "updated_at" timestamp NOT NULL
 );
