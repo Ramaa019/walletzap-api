@@ -1,4 +1,4 @@
-CREATE TYPE "transaction_type" AS ENUM (
+CREATE TYPE transaction_type AS ENUM (
   'EXPENSE',
   'INCOME'
 );
