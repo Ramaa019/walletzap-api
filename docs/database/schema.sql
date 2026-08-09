@@ -3,6 +3,13 @@ CREATE TYPE user_role AS ENUM (
   'CLIENT'
 );
 
+CREATE TYPE account_type AS ENUM (
+  'CASH',
+  'BANK',
+  'DIGITAL_WALLET',
+  'CREDIT_CARD'
+);
+
 CREATE TYPE transaction_type AS ENUM (
   'EXPENSE',
   'INCOME'
@@ -24,6 +31,7 @@ CREATE TABLE "accounts" (
   "user_id" uuid NOT NULL,
   "name" varchar(50) NOT NULL,
   "balance" decimal(12,2) NOT NULL DEFAULT 0,
+  "type" account_type NOT NULL DEFAULT 'CASH',
   "is_default" boolean NOT NULL DEFAULT false,
   "created_at" timestamp NOT NULL,
   "updated_at" timestamp NOT NULL

@@ -53,7 +53,7 @@ The application uses **PostgreSQL** hosted on **Neon**. Below is the entity-rela
 | Table | Description | Columns |
 | :--- | :--- | :--- |
 | **`users`** | Registered users in the platform | `id`, `username`, `email`, `password`,`role`, `phone_number` |
-| **`accounts`** | User payment methods / wallets | `id`, `user_id`, `name`, `balance`, `is_default` |
+| **`accounts`** | User payment methods / wallets | `id`, `user_id`, `name`, `balance`,`type`, `is_default` |
 | **`categories`** | Expense and income classification | `id`, `user_id`, `name`, `type` |
 | **`transactions`** | Financial records (expenses & incomes) | `id`, `account_id`, `category_id`, `amount`, `type`, `description` |
 
