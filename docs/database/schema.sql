@@ -1,3 +1,8 @@
+CREATE TYPE user_role AS ENUM (
+  'ADMIN',
+  'CLIENT'
+);
+
 CREATE TYPE transaction_type AS ENUM (
   'EXPENSE',
   'INCOME'
@@ -9,6 +14,7 @@ CREATE TABLE "users" (
   "email" varchar(255) UNIQUE NOT NULL,
   "password" varchar(255) NOT NULL,
   "phone_number" varchar(20) UNIQUE,
+  "role" user_role NOT NULL DEFAULT 'CLIENT',
   "created_at" timestamp NOT NULL,
   "updated_at" timestamp NOT NULL
 );
