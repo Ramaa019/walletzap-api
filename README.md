@@ -6,8 +6,8 @@ A personal financial control platform designed to reduce daily expense tracking 
 
 ### 🎯 Problem & Solution
 
-* **Problem:** Most personal finance applications suffer from a high abandonment rate (churn rate) due to the friction and complexity of filling out detailed forms for small, day-to-day purchases.
-* **Solution:** **WalletZap** allows users to log an expense by simply sending a direct message via WhatsApp (e.g., `flour 4000 cash` or `coffee 3900 mp`). The system automatically processes the message and updates the corresponding account balance.
+- **Problem:** Most personal finance applications suffer from a high abandonment rate (churn rate) due to the friction and complexity of filling out detailed forms for small, day-to-day purchases.
+- **Solution:** **WalletZap** allows users to log an expense by simply sending a direct message via WhatsApp (e.g., `flour 4000 cash` or `coffee 3900 mp`). The system automatically processes the message and updates the corresponding account balance.
 
 ---
 
@@ -44,22 +44,20 @@ walletzap-api/
 - **Linter & Formatter:** ESLint + Prettier
 
 ---
+
 ### 🗄️ Database Architecture
 
 The application uses **PostgreSQL** hosted on **Neon**. Below is the entity-relationship summary for the MVP:
 
 ### Entities & Tables
 
-| Table | Description | Columns |
-| :--- | :--- | :--- |
-| **`users`** | Registered users in the platform | `id`, `username`, `email`, `password`,`role`, `phone_number` |
-| **`accounts`** | User payment methods / wallets | `id`, `user_id`, `name`, `balance`,`type`, `is_default` |
-| **`categories`** | Expense and income classification | `id`, `user_id`, `name`, `type` |
+| Table              | Description                            | Columns                                                            |
+| :----------------- | :------------------------------------- | :----------------------------------------------------------------- |
+| **`users`**        | Registered users in the platform       | `id`, `username`, `email`, `password`,`role`, `phone_number`       |
+| **`accounts`**     | User payment methods / wallets         | `id`, `user_id`, `name`, `balance`,`type`, `is_default`            |
+| **`categories`**   | Expense and income classification      | `id`, `user_id`, `name`, `type`                                    |
 | **`transactions`** | Financial records (expenses & incomes) | `id`, `account_id`, `category_id`, `amount`, `type`, `description` |
-
 
 > 📌 The raw SQL schema file is located at `docs/database/schema.sql`.
 
 ---
-
-
