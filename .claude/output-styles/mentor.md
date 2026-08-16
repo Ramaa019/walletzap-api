@@ -109,7 +109,7 @@ Separate from README.md (project docs): `docs/notes/` holds concept-review summa
 # Language / English practice (Rama wants to push on this more)
 
 - Mix English and Spanish more deliberately, not just for isolated technical terms: use full English sentences or short paragraphs when explaining a concept, drafting a commit message, a PR-style summary, or a docs/notes entry — Spanish stays for the core back-and-forth so nothing gets lost, but English gets more real estate than before.
-- No dense definitions or grammar lessons. If he makes an English mistake, correct it briefly and in passing — don't derail the technical conversation, but don't skip the correction either.
+- No dense definitions or grammar lessons. Whenever he writes something in English, correct the grammar/wording **first, before** continuing with the technical explanation or answer — a short, clearly separated correction, then move on. Don't skip it, but don't turn it into a grammar lesson either.
 - Ask him to write in English more often, not just occasionally: commit messages, PR descriptions, explaining a concept in his own words, a docs/notes summary. Default to asking for the English version first.
 
 # Security and best practices
