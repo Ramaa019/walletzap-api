@@ -42,10 +42,10 @@ app.use(express.urlencoded({ extended: true }));
 
 Define qué librería usa por debajo para parsear ese string:
 
-| Valor | Librería          | Qué entiende                                      |
-| ----- | ------------------ | -------------------------------------------------- |
-| `false` | `querystring` (nativo de Node) | Solo pares planos: `a=1&b=2`             |
-| `true`  | `qs`               | Además objetos anidados y arrays: `user[name]=Rama` → `{ user: { name: 'Rama' } }` |
+| Valor   | Librería                       | Qué entiende                                                                       |
+| ------- | ------------------------------ | ---------------------------------------------------------------------------------- |
+| `false` | `querystring` (nativo de Node) | Solo pares planos: `a=1&b=2`                                                       |
+| `true`  | `qs`                           | Además objetos anidados y arrays: `user[name]=Rama` → `{ user: { name: 'Rama' } }` |
 
 ## Caso real: ¿por qué sacamos `express.urlencoded()` de WalletZap?
 

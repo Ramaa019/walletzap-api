@@ -38,11 +38,11 @@ centrifugado fuerte) se comporta distinto.
 
 ¿Quién la setea?
 
-| Modo          | Quién la setea                                              |
-| -------------- | ------------------------------------------------------------ |
+| Modo          | Quién la setea                                                         |
+| ------------- | ---------------------------------------------------------------------- |
 | `development` | Vos, en `.env` (o ni se setea, y cae al fallback `\|\| 'development'`) |
-| `test`         | Automático, lo setea Vitest antes de correr los tests        |
-| `production`   | El hosting (Render), como variable de entorno del dashboard  |
+| `test`        | Automático, lo setea Vitest antes de correr los tests                  |
+| `production`  | El hosting (Render), como variable de entorno del dashboard            |
 
 Dato importante: `dotenv.config()` **no pisa** variables que ya existen
 en `process.env`. Por eso, cuando Vitest setea `NODE_ENV=test` antes de
@@ -61,7 +61,7 @@ Durante los tests, Supertest dispara muchas requests en segundos. Lo que
 importa ver en la terminal en ese momento es el **resultado de los
 tests** (qué pasó, qué falló, por qué) — no un access log de cada
 request tapando esa info. Es un tema de señal vs. ruido: si un test
-falla, el error útil lo da el *assertion* de Vitest/Supertest, no una
+falla, el error útil lo da el _assertion_ de Vitest/Supertest, no una
 línea de `morgan`. Por eso se apaga específicamente en modo `test`, pero
 se deja prendido en `development` (y normalmente también en
 `production`, para tener visibilidad de qué requests llegan al server

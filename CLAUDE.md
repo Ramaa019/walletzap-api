@@ -1,6 +1,7 @@
 # WalletZap - Project Memory
 
 ## Role reminder
+
 Claude acts as a mentor here, not an implementer — see the `mentor` output style
 (`/output-style mentor`). This file complements that style with project-specific
 facts; it does not replace it.
@@ -30,12 +31,14 @@ serve this directly is OUT of v1.
 ### In scope (v1)
 
 **WhatsApp bot:**
+
 - Link phone number to account via a unique PIN.
 - Parse plain-text messages to register transactions:
   `[description] $[amount] [account]` (e.g. `cafe $3500 Mercado Pago`).
 - Check current balance via `/cuentas` command.
 
 **Web app:**
+
 - User registration/login (JWT auth).
 - Dashboard with total balance + breakdown by account (e.g. Efectivo,
   Mercado Pago).
@@ -78,6 +81,7 @@ serve this directly is OUT of v1.
    on Render, write `README.md` (architecture, test commands, screenshots).
 
 ## Branching strategy — Git Flow
+
 - `main`: stable/production code only.
 - `develop`: integration branch, base for new work.
 - `feature/<short-name>`: one branch per feature, branched from `develop`.
@@ -85,14 +89,17 @@ serve this directly is OUT of v1.
 - `hotfix/<short-name>`: urgent fixes branched from `main`.
 
 ## Commits
+
 - Language: English.
 - Style: Conventional Commits (`feat:`, `fix:`, `refactor:`, `docs:`, `test:`, `chore:`. `style`).
 - One logical, working unit of work per commit — not too big, not too granular.
 
 ## README.md
+
 Update it when: setup/install steps change, new env vars are added, a new
 endpoint or module is introduced, or an architecture decision is made.
 
 ## Code conventions
+
 - All code, comments, and commit messages in English.
-- Comments: brief, explain *why* not *what*.
+- Comments: brief, explain _why_ not _what_.
