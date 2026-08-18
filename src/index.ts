@@ -5,6 +5,7 @@ import helmet from 'helmet';
 import morgan from 'morgan';
 import { sequelize } from './config/database.js';
 import { errorHandler } from './middlewares/errorHandler.js';
+import { Server } from 'http';
 
 dotenv.config();
 
@@ -15,7 +16,7 @@ const PORT = process.env.PORT || 3000;
 app.use(helmet());
 app.use(
   cors({
-    origin: process.env.CORS_ORIGIN || '*'
+    origin: process.env.CORS_ORIGIN || '*',
   })
 );
 app.use(express.json({ limit: '10mb' }));
@@ -44,7 +45,7 @@ app.use((req, res) => {
 app.use(errorHandler);
 
 // ── Database + Server boot ────────────────────────────────────────────────────
-let server: any;
+let server: Server | undefined;
 
 async function startServer() {
   try {
@@ -72,9 +73,10 @@ startServer();
 const shutdown = async (signal: string) => {
   console.log(`\n${signal} received. Shutting down server...`);
   try {
-    if (server) {    
+    if (server) {
+      const server_instance = server;
       await new Promise<void>((resolve) => {
-        server.close(() => {
+        server_instance.close(() => {
           resolve();
         });
       });
