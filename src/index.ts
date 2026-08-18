@@ -72,8 +72,13 @@ startServer();
 const shutdown = async (signal: string) => {
   console.log(`\n${signal} received. Shutting down server...`);
   try {
-    if (server) {
-      server.close(() => console.log('HTTP server closed.'));
+    if (server) {    
+      await new Promise<void>((resolve) => {
+        server.close(() => {
+          resolve();
+        });
+      });
+      console.log('HTTP server closed.');
     }
     await sequelize.close();
     console.log('Database connection closed.');
