@@ -41,13 +41,14 @@ type UserCreationAttributes = Optional<UserInterface, 'id'>;
 
 export class UserModel
   extends Model<UserInterface, UserCreationAttributes>
-  implements UserInterface {
+  implements UserInterface
+{
   declare id: string;
   declare email: string;
   // ...resto de los campos
 }
 
-UserModel.init({ /* columnas */ }, { sequelize, tableName: 'users' });
+UserModel.init({/* columnas */}, { sequelize, tableName: 'users' });
 ```
 
 Piezas clave:
