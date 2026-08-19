@@ -6,6 +6,7 @@ import morgan from 'morgan';
 import { sequelize } from './config/database.js';
 import { errorHandler } from './middlewares/errorHandler.js';
 import { Server } from 'http';
+import { setupAssociations } from './models/Associations.model.js';
 
 dotenv.config();
 
@@ -52,7 +53,8 @@ async function startServer() {
     await sequelize.authenticate();
     console.log('Connection to PostgreSQL (Neon) established.');
 
-    // We will uncomment this when we create the models
+    // Setup model associations
+    setupAssociations();
     // await sequelize.sync({ alter: false });
     // console.log('Models synchronized with the database.');
 
