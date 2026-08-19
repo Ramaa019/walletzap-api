@@ -55,8 +55,9 @@ async function startServer() {
 
     // Setup model associations
     setupAssociations();
-    // await sequelize.sync({ alter: false });
-    // console.log('Models synchronized with the database.');
+    
+    await sequelize.sync({ alter: false });
+    console.log('Models synchronized with the database.');
 
     server = app.listen(PORT, () => {
       console.log(
