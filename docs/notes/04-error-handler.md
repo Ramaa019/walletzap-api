@@ -9,7 +9,7 @@ export const errorHandler = (err: any, req: Request, res: Response, next: NextFu
 No es por el nombre del primer parámetro (`err`) — a Express no le importa
 cómo se llame. Lo que Express chequea internamente es la **cantidad** de
 parámetros de la función (`function.length === 4`). Una función con 4
-parámetros = error-handling middleware. Una función con 3 (o menos) = 
+parámetros = error-handling middleware. Una función con 3 (o menos) =
 middleware normal.
 
 Gotcha para no olvidar: si por accidente te olvidás el `next` y dejás
@@ -25,7 +25,7 @@ en que se registraron los `app.use()`. Cuando algo llama a `next(error)`
 ese punto hacia adelante** el primer middleware de 4 parámetros que
 encuentre — no busca hacia atrás.
 
-Por eso, si `errorHandler` estuviera registrado *antes* de las rutas, un
+Por eso, si `errorHandler` estuviera registrado _antes_ de las rutas, un
 error en una ruta más abajo nunca lo alcanzaría — Express ya "pasó" ese
 punto del stack. El error quedaría sin manejar, mostrando el
 comportamiento por default de Express (feo, sin el formato JSON propio).

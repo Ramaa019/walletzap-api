@@ -2,13 +2,13 @@
 
 ## Branches
 
-| Branch          | Para qué sirve                                   | Sale de      | Vuelve a           |
-| ---------------- | ------------------------------------------------- | ------------- | -------------------- |
-| `main`          | Código estable/producción. Nunca se trabaja acá directo. | —             | —                   |
-| `develop`       | Rama de integración. Acá conviven todas las features ya terminadas, esperando release. | `main` (una sola vez, al iniciar el proyecto) | —                   |
-| `feature/<nombre>` | Una feature nueva puntual (un endpoint, un modelo, un módulo). | `develop`     | `develop`           |
-| `release/<version>` | Estabilización final antes de pasar a producción (fixes chicos, no features nuevas). | `develop`     | `main` y `develop`  |
-| `hotfix/<nombre>`  | Arreglo urgente directo sobre producción (bug crítico que no puede esperar al próximo release). | `main`        | `main` y `develop`  |
+| Branch              | Para qué sirve                                                                                  | Sale de                                       | Vuelve a           |
+| ------------------- | ----------------------------------------------------------------------------------------------- | --------------------------------------------- | ------------------ |
+| `main`              | Código estable/producción. Nunca se trabaja acá directo.                                        | —                                             | —                  |
+| `develop`           | Rama de integración. Acá conviven todas las features ya terminadas, esperando release.          | `main` (una sola vez, al iniciar el proyecto) | —                  |
+| `feature/<nombre>`  | Una feature nueva puntual (un endpoint, un modelo, un módulo).                                  | `develop`                                     | `develop`          |
+| `release/<version>` | Estabilización final antes de pasar a producción (fixes chicos, no features nuevas).            | `develop`                                     | `main` y `develop` |
+| `hotfix/<nombre>`   | Arreglo urgente directo sobre producción (bug crítico que no puede esperar al próximo release). | `main`                                        | `main` y `develop` |
 
 En el estado actual del proyecto (todavía en desarrollo activo, sin release
 todavía) vamos a usar sobre todo `develop` y `feature/*`.
@@ -32,15 +32,15 @@ El nombre va en **kebab-case, en inglés**, describiendo qué se está haciendo
 
 ## Conventional Commits — tipos
 
-| Type       | Cuándo usarlo                                                                 |
-| ---------- | ------------------------------------------------------------------------------ |
-| `feat`     | Agrega una funcionalidad nueva (un endpoint, una pantalla, un comando del bot). |
-| `fix`      | Corrige algo que estaba **roto** — un bug, un comportamiento incorrecto.       |
+| Type       | Cuándo usarlo                                                                                                                                   |
+| ---------- | ----------------------------------------------------------------------------------------------------------------------------------------------- |
+| `feat`     | Agrega una funcionalidad nueva (un endpoint, una pantalla, un comando del bot).                                                                 |
+| `fix`      | Corrige algo que estaba **roto** — un bug, un comportamiento incorrecto.                                                                        |
 | `refactor` | Cambia código existente **sin** agregar una feature ni arreglar un bug — reestructurar, limpiar, simplificar, quitar algo que ya no hace falta. |
-| `docs`     | Solo documentación (README, comentarios grandes, notas).                       |
-| `test`     | Solo agrega o modifica tests, sin tocar la lógica de la app.                   |
-| `chore`    | Tareas de mantenimiento que **no** tocan código de producción (`src/`) — configs de tooling, dependencias, scripts, CI. |
-| `style`    | Cambios de formato/estilo puro que no afectan la lógica (ej: correr Prettier). |
+| `docs`     | Solo documentación (README, comentarios grandes, notas).                                                                                        |
+| `test`     | Solo agrega o modifica tests, sin tocar la lógica de la app.                                                                                    |
+| `chore`    | Tareas de mantenimiento que **no** tocan código de producción (`src/`) — configs de tooling, dependencias, scripts, CI.                         |
+| `style`    | Cambios de formato/estilo puro que no afectan la lógica (ej: correr Prettier).                                                                  |
 
 ### Caso real: ¿`fix`, `refactor` o `chore`?
 

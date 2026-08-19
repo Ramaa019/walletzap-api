@@ -51,7 +51,7 @@ Los más relevantes que aplica por default:
   ahora en más, hable con el sitio solo por HTTPS (nunca HTTP), para
   prevenir ataques de downgrade.
 - **`X-Frame-Options`** — impide que el sitio se pueda embeber en un
-  `<iframe>` ajeno (protección contra *clickjacking*: alguien pone tu web
+  `<iframe>` ajeno (protección contra _clickjacking_: alguien pone tu web
   invisible encima de la suya para hacerte clickear cosas sin que te des
   cuenta).
 - Elimina el header `X-Powered-By: Express` — no es una protección en sí
@@ -79,7 +79,7 @@ puerta hay un portero (**el navegador**) que decide quién entra —
 no yo directamente, el portero es el que da la cara con cada visita.
 
 Cuando alguien golpea la puerta pidiendo entrar, el portero le pregunta a
-la organización: *"¿esta casa está en tu lista de invitados?"* Yo, como
+la organización: _"¿esta casa está en tu lista de invitados?"_ Yo, como
 dueño de la fiesta, le dejé al portero una lista escrita de antemano (el
 header `Access-Control-Allow-Origin`) con las casas que sí puedo dejar
 pasar. Si `sitio-trucho.com` no está en esa lista, el portero no lo deja

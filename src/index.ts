@@ -5,6 +5,8 @@ import helmet from 'helmet';
 import morgan from 'morgan';
 import { sequelize } from './config/database.js';
 import { errorHandler } from './middlewares/errorHandler.js';
+import { Server } from 'http';
+import { setupAssociations } from './models/Associations.model.js';
 
 dotenv.config();
 
@@ -15,7 +17,7 @@ const PORT = process.env.PORT || 3000;
 app.use(helmet());
 app.use(
   cors({
-    origin: process.env.CORS_ORIGIN || '*'
+    origin: process.env.CORS_ORIGIN || '*',
   })
 );
 app.use(express.json({ limit: '10mb' }));
@@ -44,16 +46,18 @@ app.use((req, res) => {
 app.use(errorHandler);
 
 // ── Database + Server boot ────────────────────────────────────────────────────
-let server: any;
+let server: Server | undefined;
 
 async function startServer() {
   try {
     await sequelize.authenticate();
     console.log('Connection to PostgreSQL (Neon) established.');
 
-    // We will uncomment this when we create the models
-    // await sequelize.sync({ alter: false });
-    // console.log('Models synchronized with the database.');
+    // Setup model associations
+    setupAssociations();
+    
+    await sequelize.sync({ alter: false });
+    console.log('Models synchronized with the database.');
 
     server = app.listen(PORT, () => {
       console.log(
@@ -73,7 +77,13 @@ const shutdown = async (signal: string) => {
   console.log(`\n${signal} received. Shutting down server...`);
   try {
     if (server) {
-      server.close(() => console.log('HTTP server closed.'));
+      const server_instance = server;
+      await new Promise<void>((resolve) => {
+        server_instance.close(() => {
+          resolve();
+        });
+      });
+      console.log('HTTP server closed.');
     }
     await sequelize.close();
     console.log('Database connection closed.');
