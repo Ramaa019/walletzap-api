@@ -34,7 +34,8 @@ serve this directly is OUT of v1.
 
 - Link phone number to account via a unique PIN.
 - Parse plain-text messages to register transactions:
-  `[description] $[amount] [account]` (e.g. `cafe $3500 Mercado Pago`).
+  `[quantity]? [description] $[amount] [account]` (e.g. `cafe $3500 Mercado Pago`).
+- `Transaction.amount` = `[quantity]` x `[amount]`, quantity is not persisted.
 - Check current balance via `/cuentas` command.
 
 **Web app:**

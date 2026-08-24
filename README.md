@@ -7,7 +7,7 @@ A personal financial control platform designed to reduce daily expense tracking 
 ### 🎯 Problem & Solution
 
 - **Problem:** Most personal finance applications suffer from a high abandonment rate (churn rate) due to the friction and complexity of filling out detailed forms for small, day-to-day purchases.
-- **Solution:** **WalletZap** allows users to log an expense by simply sending a direct message via WhatsApp (e.g., `flour 4000 cash` or `coffee 3900 mp`). The system automatically processes the message and updates the corresponding account balance.
+- **Solution:** **WalletZap** allows users to log an expense by simply sending a direct message via WhatsApp (e.g., `coffee $3900 mp` or `2 coffee $3900 mp`). The system automatically processes the message and updates the corresponding account balance.
 
 ---
 
@@ -21,12 +21,14 @@ walletzap-api/
 │   ├── config/       # Environment variables and general configurations
 │   ├── controllers/  # HTTP request handlers (req, res)
 │   ├── db/           # Sequelize / PostgreSQL connection and initialization
+│   ├── interfaces/   # Interfaces for models
 │   ├── middlewares/  # Express Middlewares (Auth, Validations, Errors)
 │   ├── models/       # Sequelize Models (User, Account, Transaction)
 │   ├── routes/       # API routes and endpoints definition
 │   ├── services/     # Business logic (WhatsApp Parser, Calculations)
 │   └── utils/        # Auxiliary functions and helpers
 ├── .env              # Environment variables (ignored by Git)
+├── .env.example      # Example environment variables with placeholders
 ├── .gitignore        # Files ignored by Git
 └── README.md         # Project documentation
 ```
